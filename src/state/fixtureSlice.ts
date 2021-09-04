@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from '../../app/store';
+import { RootState, AppThunk } from '../app/store';
 
-export interface CounterState {
+export interface FixState {
   fixtures: { 
     id: string,
     name: string,
@@ -19,7 +19,7 @@ export interface CounterState {
   }[],
 }
 
-const initialState: CounterState = {
+const initialState: FixState = {
   fixtures: []
 };
 
@@ -56,6 +56,6 @@ export const fixtureSlice = createSlice({
 
 export const { changeFixture, updateState } = fixtureSlice.actions;
 
-export const selectCount = (state: RootState) => state.counter;
+export const getCurrentState = (state: RootState) => state.counter;
 
 export default fixtureSlice.reducer;

@@ -1,4 +1,4 @@
-import { Fixtures } from './features/fixtures/Fixtures';
+import Fixtures from './app/views/FixturesHomePage';
 import './App.scss';
 
 function App() {

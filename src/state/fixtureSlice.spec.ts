@@ -1,11 +1,11 @@
 import counterReducer, {
-  CounterState,
+  FixState,
   changeFixture,
   updateState
 } from './fixtureSlice';
 
 describe('counter reducer', () => {
-  const initialState: CounterState = {
+  const initialState: FixState = {
     fixtures: []
   };
   it('should handle initial state', () => {
