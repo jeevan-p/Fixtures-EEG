@@ -25,7 +25,9 @@ function SocketSwitch() {
             setLoading(false);
         }
         webSocketObject.current.onmessage = (fixtureChange: any) => {
-            dispatch(changeFixture(JSON.parse(fixtureChange.data).data));
+            const dataFromSocket = JSON.parse(fixtureChange.data);
+            dataFromSocket.type === 'fixtureUpdate' &&
+                dispatch(changeFixture(dataFromSocket.data));
         }
         webSocketObject.current.onerror = () => {
             setLive(false);

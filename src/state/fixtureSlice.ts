@@ -46,7 +46,7 @@ export const fixtureSlice = createSlice({
   initialState,
   reducers: {
     updateState:  (state, action: PayloadAction<InitialItem>) => {
-      state.fixtures = state.fixtures.concat(action.payload);
+      state.fixtures = action.payload;
     },
     changeFixture: (state, action: PayloadAction<Item>) => {
       let itemToChange = state.fixtures.find((list) => {
