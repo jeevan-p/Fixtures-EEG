@@ -49,7 +49,14 @@ export const fixtureSlice = createSlice({
       state.fixtures = state.fixtures.concat(action.payload);
     },
     changeFixture: (state, action: PayloadAction<Item>) => {
-      state.fixtures.push(action.payload);
+      let itemToChange = state.fixtures.find((list) => {
+        if(list.id === action.payload.id) {
+          return true;
+        }
+      });
+      if(itemToChange) {
+        itemToChange.markets = action.payload.markets
+      }
     }
   }
 });

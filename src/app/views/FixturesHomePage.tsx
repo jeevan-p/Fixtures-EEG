@@ -14,8 +14,8 @@ export default function Fixtures() {
   const dispatch = useAppDispatch();
 
   const fetchData = () => {
-    fetchApiUtil("http://fixtures-over-websockets.thinkmorestupidless.com/fixtures", (fixturedata: []) => {
-      dispatch(updateState(fixturedata));
+    fetchApiUtil("http://fixtures-over-websockets.thinkmorestupidless.com/fixtures", (fixturedata: [], error: boolean) => {
+      !error && dispatch(updateState(fixturedata));
     });
   }
 
@@ -29,18 +29,11 @@ export default function Fixtures() {
     <div>
       <div className='fixture-container'>
         <SocketSwitch />
-        <button
-          className='button'
-          aria-label="Decrement value"
-          onClick={() => dispatch(changeFixture({
-            id: 'abc',
-            name: 'abc',
-            startTime: 'abc',
-            markets: []
-          }))}
-        >
-          Check
-        </button>
+        {
+          fixtureList.fixtures.map((fixtureDetails, index) => <div>
+            {fixtureDetails.name} - {fixtureDetails.markets[0].selections[0].price} : {fixtureDetails.markets[0].selections[1].price}
+          </div>)
+        }
       </div>
     </div>
   );
