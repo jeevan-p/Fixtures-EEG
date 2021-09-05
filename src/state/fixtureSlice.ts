@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from '../app/store';
+import { RootState } from '../app/store';
 
 export interface FixState {
   fixtures: { 
@@ -50,12 +50,12 @@ export const fixtureSlice = createSlice({
     },
     changeFixture: (state, action: PayloadAction<Item>) => {
       let itemToChange = state.fixtures.find((list) => {
-        if(list.id === action.payload.id) {
-          return true;
-        }
+        return list.id === action.payload.id;
       });
       if(itemToChange) {
-        itemToChange.markets = action.payload.markets
+        itemToChange.markets = action.payload.markets;
+        itemToChange.name = action.payload.name;
+        itemToChange.startTime = action.payload.startTime;
       }
     }
   }

@@ -1,0 +1,39 @@
+@import './../../../appColor.scss';
+
+.fixture-list-item {
+    border-bottom: 1px solid $light-color;
+    padding: 3px 0;
+    display: flex;
+    &:last-child {
+        border-bottom: none;
+    }
+    .market-details-component {
+        width: 40%;
+        .selection-container {
+            display: flex;
+            .selection-list-item {
+                flex-grow: 1;
+                width: 100%;
+                border: 1px solid $medium-color;
+                border-radius: 4px;
+                margin-right: 7px;
+                padding: 6px 10px 10px 18px;
+            }
+        }
+    }
+    .fixture-details {
+        width: 60%;
+        .fixture-details-container {
+            display: flex;
+            margin: 10px 0;
+            .fixture-name {
+                display: flex;
+                font-size: $font-size-large;
+                font-weight: 700;
+                color: $primary-color;
+                padding: 0 0 0 30px;
+                text-align: left;
+            }
+        }
+    }
+}

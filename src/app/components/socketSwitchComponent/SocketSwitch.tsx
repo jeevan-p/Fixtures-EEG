@@ -8,8 +8,8 @@ import { useAppDispatch } from '../../../app/hooks';
 
 function SocketSwitch() {
     const [live, setLive] = useState(false);
-    const [initialConnection] = useState(true);
-    const [loading, setLoading] = useState(true);
+    const [initialConnection] = useState(false); // Change to true for initial connection
+    const [loading, setLoading] = useState(false);
     let webSocketObject = useRef<any>(null);
     const dispatch = useAppDispatch();
 
@@ -65,10 +65,6 @@ function SocketSwitch() {
             }
         </div>
     );
-}
-
-interface IfcObject {
-    [key: string]: any
 }
 
 export default SocketSwitch;
