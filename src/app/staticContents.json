@@ -22,5 +22,10 @@
             "status": "SETTLED",
             "className": "settled-icon"
         }
-    ]
+    ],
+    "apiFetchErrorText": {
+        "mainText": "Unable to fetch data from server.",
+        "retryText": "Try again"
+    }
+    
 }

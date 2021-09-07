@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../app/store';
 
 
-export interface Item {
+export interface FixItem {
   id: string,
   name: string,
   startTime: string,
@@ -18,10 +18,10 @@ export interface Item {
   }[]
 }
 export interface FixState {
-  fixtures: Item[],
+  fixtures: FixItem[],
 }
 
-type InitialItem = Item[];
+type InitialItem = FixItem[];
 
 const initialState: FixState = {
   fixtures: []
@@ -34,7 +34,7 @@ export const fixtureSlice = createSlice({
     updateState:  (state, action: PayloadAction<InitialItem>) => {
       state.fixtures = action.payload;
     },
-    changeFixture: (state, action: PayloadAction<Item>) => {
+    changeFixture: (state, action: PayloadAction<FixItem>) => {
       let itemToChange = state.fixtures.find((list) => {
         return list.id === action.payload.id;
       });

@@ -18,6 +18,7 @@
     &.disabled {
         color: $disabled-color;
         border: 1px solid $disabled-color;
+        cursor: default;
         &:hover {
             background-color: $white;
         }

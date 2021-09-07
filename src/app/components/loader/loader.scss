@@ -1,0 +1,19 @@
+.loading-spinner {
+    $spinner-size: 25px;
+    width: $spinner-size;
+    height: $spinner-size;
+    margin: 0 auto;
+    background-image: url('./../../icons/loader_icon.svg');
+    background-repeat: no-repeat;
+    background-size: $spinner-size;
+    animation: spin 1.5s infinite linear;
+    @-moz-keyframes spin {
+        100% { -moz-transform: rotate(360deg); }
+    }
+    @-webkit-keyframes spin {
+        100% { -webkit-transform: rotate(360deg); }
+    }
+    @keyframes spin {
+        100% {transform:rotate(360deg);}
+    }
+}
