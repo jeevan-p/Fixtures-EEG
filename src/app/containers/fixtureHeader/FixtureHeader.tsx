@@ -11,7 +11,7 @@ import classNames from 'classnames';
 
 function FixtureHeader() {
     const [live, setLive] = useState(false);
-    const [initialConnection] = useState(true); // Change to true for initial connection
+    const [initialConnection] = useState(false); // Change to true for initial connection
     const [loading, setLoading] = useState(false);
     const [displayContent, setDisplayContent] = useState('');
     let webSocketObject = useRef<any>(null);
@@ -64,7 +64,6 @@ function FixtureHeader() {
     return (
         <div className="fixture-header">
             <div className="fixture-header-content-parent">
-                {/* <div className={contentClass}></div> */}
                 <div className={contentClass}><div className="circle"></div>{displayContent}</div>
             </div>
             <Button

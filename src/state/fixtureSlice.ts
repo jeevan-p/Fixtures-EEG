@@ -1,29 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../app/store';
 
-export interface FixState {
-  fixtures: { 
-    id: string,
-    name: string,
-    startTime: string,
-    markets: {
-      id: string,
-      name: string,
-      status: string,
-      selections: {
-        id: string,
-        name: string,
-        price: number
-      }[]
-    }[] 
-  }[],
-}
 
-const initialState: FixState = {
-  fixtures: []
-};
-
-interface Item {
+export interface Item {
   id: string,
   name: string,
   startTime: string,
@@ -38,8 +17,15 @@ interface Item {
     }[]
   }[]
 }
+export interface FixState {
+  fixtures: Item[],
+}
 
 type InitialItem = Item[];
+
+const initialState: FixState = {
+  fixtures: []
+};
 
 export const fixtureSlice = createSlice({
   name: 'fixture',

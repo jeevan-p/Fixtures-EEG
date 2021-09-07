@@ -2,6 +2,7 @@ import React from 'react';
 import MarketDetails from '../marketDetails/MarketDetails';
 import DisplayText from '../../components/displayText/DisplayText';
 import { dateUtil } from '../../utils/dateUtil';
+import { Item } from '../../../state/fixtureSlice';
 import './fixtureListItem.scss';
 
 const FixtureListItem = React.memo(function FixtureListItem(props: FixtureItem) {
@@ -38,21 +39,7 @@ const FixtureListItem = React.memo(function FixtureListItem(props: FixtureItem) 
 });
 
 interface FixtureItem {
-  fixtureDetails: {
-    id: string,
-    name: string,
-    startTime: string,
-    markets: {
-      id: string,
-      name: string,
-      status: string,
-      selections: {
-        id: string,
-        name: string,
-        price: number
-      }[]
-    }[]
-  }
+  fixtureDetails: Item
 }
 
 export default FixtureListItem;

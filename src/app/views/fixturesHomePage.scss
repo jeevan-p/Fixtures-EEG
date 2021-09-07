@@ -8,8 +8,40 @@
     border: 1px solid #d7d9db;
     padding: 10px;
     background-color: $app-background-color;
-    position: relative;
     @media (max-width: 650px) {
         min-height: 400px;
+    }
+    .fixture-other-text {
+        margin-top: 180px;
+        text-align: center;
+        .fixture-try-again {
+            text-decoration: underline;
+            font-style: italic;
+            font-weight: 600;
+            cursor: pointer;
+            &:active {
+                color: $primary-color;
+            }
+        }
+    }
+    .loading-spinner {
+        $spinner-size: 25px;
+        width: $spinner-size;
+        height: $spinner-size;
+        margin: 0 auto;
+        margin-top: 180px;
+        background-image: url('./../icons/loader_icon.svg');
+        background-repeat: no-repeat;
+        background-size: $spinner-size;
+        animation: spin 1.5s infinite linear;
+        @-moz-keyframes spin {
+            100% { -moz-transform: rotate(360deg); }
+        }
+        @-webkit-keyframes spin {
+            100% { -webkit-transform: rotate(360deg); }
+        }
+        @keyframes spin {
+            100% {transform:rotate(360deg);}
+        }
     }
 }

@@ -33,7 +33,7 @@ function MarketDetails(props: MarketDetailsProps) {
     return (
       <div className="market-details">
         <DisplayText customClass='market-name' textColor='medium' textType='smallest'>
-          {props.marketName} <Tooltip content={props.marketStatus} iconClass={getIconClass(props.marketStatus)}/>
+          {props.marketName} <Tooltip content={props.marketStatus.replace('_', ' ')} iconClass={getIconClass(props.marketStatus)}/>
         </DisplayText>
         <div className="selection-container">
           {selectionTabs}

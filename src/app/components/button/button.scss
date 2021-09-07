@@ -16,13 +16,14 @@
         color: $white;
     }
     &.disabled {
-        color: grey;
+        color: $disabled-color;
+        border: 1px solid $disabled-color;
         &:hover {
             background-color: $white;
         }
         &:active {
             background-color: $white;
-            color: grey;
+            color: $disabled-color;
         }
     }
     @media (max-width: 650px) {
