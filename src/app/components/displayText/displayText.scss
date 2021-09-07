@@ -1,0 +1,31 @@
+@import './../../../appColor.scss';
+
+.display-text {
+    text-align: left;
+    word-break: break-all;
+    &.primary {
+        color: $primary-color;
+    }
+    &.secondary {
+        color: $secondary-color;
+    }
+    &.medium {
+        color: $medium-color;
+    }
+    &.light {
+        color: $light-color;
+    }
+    &.smallest {
+        font-size: $font-size-smallest;
+    }
+    &.small {
+        font-size: $font-size-small;
+    }
+    &.large {
+        font-size: $font-size-large;
+    }
+    &.largest {
+        font-size: $font-size-largest;
+    }
+
+}

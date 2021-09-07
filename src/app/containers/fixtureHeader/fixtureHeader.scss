@@ -1,0 +1,46 @@
+@import './../../../appColor.scss';
+
+.fixture-header {
+    border-bottom: 1px solid $primary-color;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    .fixture-header-content-parent {
+        flex-grow: 1;
+        .fixture-header-content {
+            display: flex;
+            text-align: left;
+            padding-left: 5px;
+            font-weight: 700;
+            font-size: 14px;
+            &.green {
+                color: $positive-color;
+                .circle {
+                    background-color: $positive-color;
+                }
+            }
+            &.red {
+                color: $negative-color;
+                .circle {
+                    background-color: $negative-color;
+                }
+            }
+            &.yellow {
+                color: $neutral-color;
+                .circle {
+                    background-color: $neutral-color;
+                }
+            }
+            .circle {
+                width: 12px;
+                height: 12px;
+                border-radius: 6px;
+                margin-top: 2px;
+                margin-right: 7px;
+            }
+        }
+    }
+    .fixture-header-button {
+        min-width: 130px;
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "initialApiUrl": "http://fixtures-over-websockets.thinkmorestupidless.com/fixtures",
+    "websocketUrl": "ws://fixtures-over-websockets.thinkmorestupidless.com/ws",
+    "selectableStatus": [
+        "NOT_STARTED",
+        "IN_PLAY"
+    ],
+    "statusToIconClass": [
+        {
+            "status": "NOT_STARTED",
+            "className": "not-started-icon"
+        },{
+            "status": "IN_PLAY",
+            "className": "in-play-icon"
+        },{
+            "status": "SUSPENDED",
+            "className": "suspended-icon"
+        },{
+            "status": "FINISHED",
+            "className": "finished-icon"
+        },{
+            "status": "SETTLED",
+            "className": "settled-icon"
+        }
+    ]
+}

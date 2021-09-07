@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
-import SocketSwitch from '../components/socketSwitchComponent/SocketSwitch';
+import { useEffect } from 'react';
+import FixtureHeader from '../containers/fixtureHeader/FixtureHeader';
+import FixtureListItem from '../containers/fixtureListItem/FixtureListItem';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import {
   updateState,
   getCurrentState
 } from '../../state/fixtureSlice';
 import { fetchApiUtil } from '../utils/fetchApi';
-import FixtureListItem from '../components/fixtureListItem/FixtureListItem';
+import { initialApiUrl } from './../staticContents.json';
 import './fixturesHomePage.scss';
 
 export default function Fixtures() {
@@ -14,7 +15,7 @@ export default function Fixtures() {
   const dispatch = useAppDispatch();
 
   const fetchData = () => {
-    fetchApiUtil("http://fixtures-over-websockets.thinkmorestupidless.com/fixtures", (fixturedata: [], error: boolean) => {
+    fetchApiUtil(initialApiUrl, (fixturedata: [], error: boolean) => {
       !error && dispatch(updateState(fixturedata));
     });
   }
@@ -26,8 +27,10 @@ export default function Fixtures() {
   return (
     <div>
       <div className='fixture-container'>
-        <SocketSwitch />
-        {fixtureList.fixtures.map((fixtureDetails) => <FixtureListItem key={fixtureDetails.id} fixtureDetails={fixtureDetails}/>)}
+        <FixtureHeader />
+        {fixtureList.fixtures.map((fixtureDetails) =>
+          <FixtureListItem key={fixtureDetails.id} fixtureDetails={fixtureDetails}/>
+        )}
       </div>
     </div>
   );

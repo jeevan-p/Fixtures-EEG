@@ -1,0 +1,10 @@
+@import './../../../appColor.scss';
+
+.market-details {
+    padding: 3px 0 10px 0;
+    .market-name {
+        text-align: left;
+        margin-bottom: 3px;
+        position: relative;
+    }
+}
