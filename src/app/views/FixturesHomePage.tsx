@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import FixtureHeader from '../containers/fixtureHeader/FixtureHeader';
 import FixtureListItem from '../containers/fixtureListItem/FixtureListItem';
-import DisplayText from '../components/displayText/DisplayText';
 import DisplayMessage from '../components/DisplayMessage/DisplayMessage';
 import Loader from '../components/loader/Loader';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
@@ -109,7 +108,7 @@ export default function Fixtures() {
             <DisplayMessage customClass="fixture-other-text">
                 {apiFetchErrorText.mainText}
                 <div className="fixture-try-again">
-                  <a onClick={() => fetchData()}>{apiFetchErrorText.retryText}</a>
+                  <span onClick={() => fetchData()}>{apiFetchErrorText.retryText}</span>
                 </div>
             </DisplayMessage>
         }

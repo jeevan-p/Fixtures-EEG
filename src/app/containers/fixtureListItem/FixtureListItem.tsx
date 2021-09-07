@@ -22,7 +22,7 @@ const FixtureListItem = React.memo(function FixtureListItem(props: FixtureItem) 
           customClass='fixture-date'
           textColor='medium'
           textType='small'>
-            {dateUtil(props.fixtureDetails.startTime).map((text: string) => <div>{text}</div>)}
+            {dateUtil(props.fixtureDetails.startTime).map((text: string, index: number) => <div key={index}>{text}</div>)}
         </DisplayText>
         <DisplayText
           customClass='fixture-name'

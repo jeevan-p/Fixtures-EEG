@@ -57,7 +57,10 @@
     @media (max-width: 650px) {
         margin: 0 3px;
         &:hover {
-            background-color: $white;
+            background-color: white;
+        }
+        &.selected {
+            background-color: $secondary-color;
         }
     }
 }
