@@ -3,11 +3,13 @@ import FixtureHeader from '../containers/fixtureHeader/FixtureHeader';
 import FixtureListItem from '../containers/fixtureListItem/FixtureListItem';
 import DisplayMessage from '../components/DisplayMessage/DisplayMessage';
 import Loader from '../components/loader/Loader';
+import Footer from '../components/footer/Footer';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import {
   updateState,
   changeFixture,
-  getCurrentState
+  getCurrentState,
+  FixItem
 } from '../../state/fixtureSlice';
 import { fetchApiUtil } from '../utils/fetchApi';
 import { connectToWebSocket } from '../utils/webSocketConnection';
@@ -23,7 +25,7 @@ export default function Fixtures() {
   const [webSocketError, setWebSocketError] = useState(false);
 
   let webSocketObject = useRef<any>(null);
-  const fixtureList = useAppSelector(getCurrentState);
+  const fixtureList: any = useAppSelector(getCurrentState);
   const dispatch = useAppDispatch();
 
   const startConnection = useCallback(
@@ -83,14 +85,14 @@ export default function Fixtures() {
     });
   }
 
-  const fixtureListComponent = fixtureList.fixtures.map((fixtureDetails) =>
+  const fixtureListComponent = fixtureList.fixtures.map((fixtureDetails: FixItem) =>
     <FixtureListItem key={fixtureDetails.id} fixtureDetails={fixtureDetails}/>
   );
 
   useEffect(() => {
     fetchData();
     return () => {
-      // clean-up
+      // clean-up when the app is unmounted
       webSocketLive && closeConnection();
       dispatch(updateState([]));
     }
@@ -116,6 +118,7 @@ export default function Fixtures() {
         }
         {fixtureListComponent}
       </div>
+      <Footer>Made with love by Jeevan for EEG!</Footer>
     </div>
   );
 }
