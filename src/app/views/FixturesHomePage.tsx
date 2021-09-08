@@ -3,7 +3,6 @@ import FixtureHeader from '../containers/fixtureHeader/FixtureHeader';
 import FixtureListItem from '../containers/fixtureListItem/FixtureListItem';
 import DisplayMessage from '../components/DisplayMessage/DisplayMessage';
 import Loader from '../components/loader/Loader';
-import Footer from '../components/footer/Footer';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import {
   updateState,
@@ -118,7 +117,6 @@ export default function Fixtures() {
         }
         {fixtureListComponent}
       </div>
-      <Footer>Made with love by Jeevan for EEG!</Footer>
     </div>
   );
 }
