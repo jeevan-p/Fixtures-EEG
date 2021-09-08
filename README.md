@@ -1,7 +1,7 @@
 ## Instructions to Run the application
 
-Install dependencies and start by using the script `yarn start`.
-Run `yarn run coverage` for running the unit test with coverage report.
+Install dependencies and start by using the script `yarn start` | `npm start`.
+Run `yarn coverage` | `npm run coverage` for running the unit test with coverage report.
 
 ---
 

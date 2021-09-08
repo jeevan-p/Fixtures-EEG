@@ -7,19 +7,24 @@ import { getIconClass } from '../../utils/getIconClass';
 import './marketDetails.scss';
 
 function MarketDetails(props: MarketDetailsProps) {
+    const {
+      marketName,
+      marketStatus,
+      marketSelections
+    } = props;
     const [selectedTab, setSelectedTab] = useState('');
     const [selectableMarket, setSelectableMarket] = useState(false);
 
     useEffect(() => {
-        setSelectableMarket(isStatusSelectable(props.marketStatus));
+        setSelectableMarket(isStatusSelectable(marketStatus));
         setSelectedTab('');
-    }, [props.marketStatus]);
+    }, [marketStatus]);
 
     const onTabSelect = (selectedId: string) => {
       setSelectedTab(selectedTab === selectedId ? '' : selectedId);
     }
 
-    const selectionTabs = props.marketSelections.map((selectionListItem: SelectionListType) =>
+    const selectionTabs = marketSelections.map((selectionListItem: SelectionListType) =>
       <TabComponent
         key={selectionListItem.id}
         preHeader={selectionListItem.name}
@@ -32,7 +37,11 @@ function MarketDetails(props: MarketDetailsProps) {
     return (
       <div className="market-details">
         <DisplayText customClass='market-name' textColor='medium' textType='smallest'>
-          {props.marketName} <Tooltip content={props.marketStatus.replace('_', ' ')} iconClass={getIconClass(props.marketStatus)}/>
+          {marketName}
+          <Tooltip
+            content={marketStatus.replace('_', ' ')}
+            iconClass={getIconClass(marketStatus)}
+          />
         </DisplayText>
         <div className="selection-container">
           {selectionTabs}

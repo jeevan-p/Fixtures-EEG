@@ -2,10 +2,14 @@ import classNames from 'classnames';
 import './tooltip.scss';
 
 function Tooltip(props: {content: string, iconClass?: string}) {
-    const iconClass = classNames('tooltip', props.iconClass);
+    const {
+        iconClass,
+        content
+    } = props;
+    const iconClassList = classNames('tooltip', iconClass);
     return (
-        <div className={iconClass}>
-            <span className="tooltiptext">{props.content}</span>
+        <div className={iconClassList}>
+            <span className="tooltiptext">{content}</span>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import counterReducer, {
+import fixtureReducer, {
   FixState,
   changeFixture,
   updateState
@@ -11,16 +11,16 @@ const itemObject = {
   markets: []
 };
 
-describe('counter reducer', () => {
+describe('Fixture reducer', () => {
   const initialState = {
     fixtures: []
   };
   it('should handle initial state', () => {
-    expect(counterReducer(undefined, { type: 'unknown' })).toEqual({"fixtures": []});
+    expect(fixtureReducer(undefined, { type: 'unknown' })).toEqual({"fixtures": []});
   });
 
   it('should handle updateState', () => {
-    const actual = counterReducer(initialState, updateState([itemObject]));
+    const actual = fixtureReducer(initialState, updateState([itemObject]));
 
     expect(actual.fixtures).toEqual([itemObject]);
   });
@@ -32,8 +32,8 @@ describe('counter reducer', () => {
       startTime: 'newStartTime',
       markets: []
     }
-    const newState = counterReducer(initialState, updateState([itemObject]));
-    const response = counterReducer(newState, changeFixture(newItemObject));
+    const newState = fixtureReducer(initialState, updateState([itemObject]));
+    const response = fixtureReducer(newState, changeFixture(newItemObject));
 
     expect(response.fixtures).toEqual([newItemObject]);
   });
@@ -45,8 +45,8 @@ describe('counter reducer', () => {
       startTime: 'newStartTime',
       markets: []
     }
-    const newState = counterReducer(initialState, updateState([itemObject]));
-    const response = counterReducer(newState, changeFixture(newItemObject));
+    const newState = fixtureReducer(initialState, updateState([itemObject]));
+    const response = fixtureReducer(newState, changeFixture(newItemObject));
 
     expect(response.fixtures).toEqual([itemObject]);
   });

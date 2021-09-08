@@ -3,11 +3,22 @@ import classNames from 'classnames';
 import './displayText.scss';
 
 const DisplayText =  React.memo(function DisplayText(props: DisplayTextProps) {
-    const {children} = props;
-    let typeClassNames = classNames('display-text', props.customClass, props.textColor, props.textType);
+    const {
+      children,
+      customClass,
+      textColor,
+      textType
+    } = props;
+    let typeClassNames = classNames(
+      'display-text',
+      customClass,
+      textColor,
+      textType
+    );
+    
     return (
       <div className={typeClassNames}>
-            {children}
+        {children}
       </div>
     );
   });

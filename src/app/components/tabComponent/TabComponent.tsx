@@ -5,9 +5,18 @@ import './tabComponent.scss';
 
 function TabComponent(props: Props) {
     const [difference, setDifference] = useState(0);
-    const { preHeader, header, onTabSelect, selected, disabledTab } = props;
+    const {
+        preHeader,
+        header,
+        onTabSelect,
+        selected,
+        disabledTab
+    } = props;
     const previousHeaderValue =  useRef<number>(header);
-    const arrowClass = classNames('arrow', difference > 0 ? 'positive' : difference < 0 ? 'negative' : '');
+    const arrowClass = classNames(
+        'arrow',
+        difference > 0 ? 'positive' : difference < 0 ? 'negative' : ''
+    );
 
     const tabClasses = `tab-component
         ${disabledTab ? ' disabled' : ''}
