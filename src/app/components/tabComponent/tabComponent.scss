@@ -20,7 +20,7 @@
         font-weight: 500;
     }
     &.selected {
-        background-color: $secondary-color;
+        background-color: $primary-color;
         div {
             color: $white;
         }
@@ -60,7 +60,7 @@
             background-color: white;
         }
         &.selected {
-            background-color: $secondary-color;
+            background-color: $primary-color;
         }
     }
 }
