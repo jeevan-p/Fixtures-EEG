@@ -1,0 +1,51 @@
+$tooltip-size: 12px;
+
+.tooltip {
+    position: absolute;
+    display: inline-block;
+    background-image: url('./../../icons/info_icon.svg');
+    background-repeat: no-repeat;
+    width: $tooltip-size;
+    height: $tooltip-size;
+    background-size: $tooltip-size;
+    top: 2px;
+    right: 15px;
+    opacity: 0.7;
+    .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+    
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -100px;
+    }
+    &:hover {
+        .tooltiptext {
+            visibility: visible;
+        }
+    }
+    &.not-started-icon {
+        background-image: url('./../../icons/notstart_icon.svg');
+    }
+    &.in-play-icon {
+        background-image: url('./../../icons/play_icon.svg');
+    }
+    &.suspended-icon {
+        background-image: url('./../../icons/suspended_icon.svg');
+    }
+    &.finished-icon {
+        background-image: url('./../../icons/finished_icon.svg');
+    }
+    &.settled-icon {
+        background-image: url('./../../icons/settled_icon.svg');
+    }
+
+}

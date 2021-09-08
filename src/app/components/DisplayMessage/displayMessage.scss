@@ -1,0 +1,15 @@
+.display-message {
+    .display-message-text {
+        text-align: center;
+    }
+    .display-message-icon {
+        $icon-width: 25px;
+        width: $icon-width;
+        height: $icon-width;
+        background-image: url('./../../icons/info_icon.svg');
+        background-repeat: no-repeat;
+        background-size: $icon-width;
+        margin: 15px auto;
+        opacity: 0.3;
+    }
+}

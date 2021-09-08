@@ -1,3 +1,10 @@
+## Instructions to Run the application
+
+Install dependencies and start by using the script `yarn start`.
+Run `yarn run coverage` for running the unit test with coverage report.
+
+*
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
