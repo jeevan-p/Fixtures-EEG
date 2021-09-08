@@ -1,5 +1,3 @@
-import { w3cwebsocket as websocket } from 'websocket';
-
 export const connectToWebSocket = (
     websocketUrl: string,
     onOpen?: () => void,
@@ -7,7 +5,7 @@ export const connectToWebSocket = (
     onMessage?: (message: WebsocketMessage) => void,
     onError?: () => void
 ) => {
-    const webSocket = new websocket(websocketUrl);
+    const webSocket = new WebSocket(websocketUrl);
     webSocket.onopen = () => {
         onOpen && onOpen();
     }
@@ -26,4 +24,4 @@ export const connectToWebSocket = (
 interface WebsocketMessage {
     type: string,
     data: string
-  }
+}

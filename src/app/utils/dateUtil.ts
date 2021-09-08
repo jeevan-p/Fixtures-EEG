@@ -1,5 +1,8 @@
 export const dateUtil = (date: string) => {
     const dateToConvert = new Date(date);
+    if (isNaN(dateToConvert.getTime())) { 
+        return (['Comming', 'Soon'])
+    }
     const dateMinutes = dateToConvert.getMinutes();
     let returnStatements = [
         `${dateToConvert.getDate()} ${getMonthName(dateToConvert.getMonth())}`,

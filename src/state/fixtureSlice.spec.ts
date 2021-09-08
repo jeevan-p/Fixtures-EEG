@@ -4,43 +4,50 @@ import counterReducer, {
   updateState
 } from './fixtureSlice';
 
+const itemObject = {
+  id: 'testId',
+  name: 'testName',
+  startTime: 'testStartTime',
+  markets: []
+};
+
 describe('counter reducer', () => {
-  const initialState: FixState = {
+  const initialState = {
     fixtures: []
   };
   it('should handle initial state', () => {
-    expect(counterReducer(undefined, { type: 'unknown' })).toEqual([]);
+    expect(counterReducer(undefined, { type: 'unknown' })).toEqual({"fixtures": []});
   });
 
   it('should handle updateState', () => {
-    const actual = counterReducer(initialState, updateState([{
-      id: 'abc',
-      name: 'abc',
-      startTime: 'abc',
-      markets: []
-    }]));
+    const actual = counterReducer(initialState, updateState([itemObject]));
 
-    expect(actual.fixtures).toEqual([{
-      id: 'abc',
-      name: 'abc',
-      startTime: 'abc',
-      markets: []
-    }]);
+    expect(actual.fixtures).toEqual([itemObject]);
   });
 
   it('should handle changeFixture', () => {
-    const actual = counterReducer(initialState, changeFixture({
-      id: 'abc',
-      name: 'abc',
-      startTime: 'abc',
+    const newItemObject = {
+      id: 'testId',
+      name: 'newName',
+      startTime: 'newStartTime',
       markets: []
-    }));
+    }
+    const newState = counterReducer(initialState, updateState([itemObject]));
+    const response = counterReducer(newState, changeFixture(newItemObject));
 
-    expect(actual.fixtures).toEqual([{
-      id: 'abc',
-      name: 'abc',
-      startTime: 'abc',
+    expect(response.fixtures).toEqual([newItemObject]);
+  });
+
+  it('should handle changeFixture when a list item comes which is not there in the list', () => {
+    const newItemObject = {
+      id: 'newId',
+      name: 'newName',
+      startTime: 'newStartTime',
       markets: []
-    }]);
+    }
+    const newState = counterReducer(initialState, updateState([itemObject]));
+    const response = counterReducer(newState, changeFixture(newItemObject));
+
+    expect(response.fixtures).toEqual([itemObject]);
   });
 });

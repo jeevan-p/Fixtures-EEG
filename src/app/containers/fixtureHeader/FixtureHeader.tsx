@@ -4,13 +4,10 @@ import classNames from 'classnames';
 import './fixtureHeader.scss';
 
 const FixtureHeader = React.memo(function FixtureHeader(props: Props) {
-
     const {displayContent, live, loading, startConnection, closeConnection} = props;
-
     const buttonHandler = () => {
         live ? closeConnection() : startConnection();
     }
-
     const contentClass = classNames('fixture-header-content', {'yellow': loading }, live ? 'green' : 'red');
 
     return (

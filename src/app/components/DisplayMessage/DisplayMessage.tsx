@@ -1,7 +1,7 @@
 import DisplayText from "../displayText/DisplayText";
 import classNames from "classnames";
 import './displayMessage.scss';
-const DisplayMessage = (props: {children: any, customClass: string}) => {
+const DisplayMessage = (props: propsType) => {
     const classes = classNames( "display-message", props.customClass)
     return (
         <div className={classes}>
@@ -11,6 +11,11 @@ const DisplayMessage = (props: {children: any, customClass: string}) => {
             </DisplayText>
         </div>
     );
+}
+
+interface propsType {
+    children: any,
+    customClass?: string
 }
 
 export default DisplayMessage;
