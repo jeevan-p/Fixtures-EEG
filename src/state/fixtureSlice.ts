@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../app/store';
 
-
 export interface FixItem {
   id: string,
   name: string,
@@ -27,6 +26,7 @@ const initialState: FixState = {
   fixtures: []
 };
 
+// Fixture Reducer - Creates a slice - Automatically creates Actions
 export const fixtureSlice = createSlice({
   name: 'fixture',
   initialState,
@@ -49,6 +49,6 @@ export const fixtureSlice = createSlice({
 
 export const { changeFixture, updateState } = fixtureSlice.actions;
 
-export const getCurrentState = (state: RootState) => state.counter;
+export const getCurrentState = (state: RootState) => state.stateData;
 
 export default fixtureSlice.reducer;

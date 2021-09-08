@@ -6,8 +6,9 @@ import { FixItem } from '../../../state/fixtureSlice';
 import './fixtureListItem.scss';
 
 const FixtureListItem = React.memo(function FixtureListItem(props: FixtureItem) {
+  const { fixtureDetails } = props;
 
-  const marketDetailsComponent = props.fixtureDetails.markets.map((marketData) =>
+  const marketDetailsComponent = fixtureDetails.markets.map((marketData) =>
     <MarketDetails
       key={marketData.id}
       marketName={marketData.name}
@@ -22,13 +23,16 @@ const FixtureListItem = React.memo(function FixtureListItem(props: FixtureItem) 
           customClass='fixture-date'
           textColor='medium'
           textType='small'>
-            {dateUtil(props.fixtureDetails.startTime).map((text: string, index: number) => <div key={index}>{text}</div>)}
+            {
+              dateUtil(fixtureDetails.startTime)
+                .map((text: string, index: number) => <div key={index}>{text}</div>)
+            }
         </DisplayText>
         <DisplayText
           customClass='fixture-name'
           textColor='primary'
           textType='large'>
-            {props.fixtureDetails.name}
+            {fixtureDetails.name}
         </DisplayText>
       </div>
       <div className="market-details-component">

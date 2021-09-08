@@ -90,7 +90,9 @@ export default function Fixtures() {
   useEffect(() => {
     fetchData();
     return () => {
+      // clean-up
       webSocketLive && closeConnection();
+      dispatch(updateState([]));
     }
   }, []);
 
